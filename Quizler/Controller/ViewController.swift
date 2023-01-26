@@ -119,6 +119,7 @@ class ViewController: UIViewController {
     }
     
     @objc func porverka(sender: UIButton) {
+        
         let userAnswer = sender.currentTitle
         let userGotItRight = quizBrain.chackAnswer(userAnswer: userAnswer ?? "Error user answer")
         
@@ -141,7 +142,9 @@ class ViewController: UIViewController {
         fitstButton.backgroundColor = .clear
         secondtButton.backgroundColor = .clear
         threetButton.backgroundColor = .clear
-        
+        fitstButton.setTitle(quizBrain.quiz[quizBrain.quationNumber].answer[0],for: .normal)
+        secondtButton.setTitle(quizBrain.quiz[quizBrain.quationNumber].answer[1],for: .normal)
+        threetButton.setTitle(quizBrain.quiz[quizBrain.quationNumber].answer[2],for: .normal)
     }
     
 }
