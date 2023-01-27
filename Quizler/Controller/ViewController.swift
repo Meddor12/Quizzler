@@ -20,39 +20,43 @@ class ViewController: UIViewController {
         var view = UILabel()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.text = "Quations"
+        view.numberOfLines = 0
         
         return view
     }()
-    var fitstButton: UIButton = {
+    lazy var fitstButton: UIButton = {
         var view = UIButton(type: .system)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.setTitle("True", for: .normal)
         view.tintColor = .black
-        view.setBackgroundImage(UIImage(named: "Rectangle"), for: .normal)
-        view.addTarget(self, action: #selector(porverka), for: .touchUpInside)
+        view.layer.borderColor = UIColor.gray.cgColor
+        view.layer.borderWidth = 5
+        view.addTarget(self, action: #selector(buttonsPressed), for: .touchUpInside)
         view.layer.cornerRadius = 16
         
         return view
     }()
-    var secondtButton: UIButton = {
+    lazy var secondtButton: UIButton = {
         var view = UIButton(type: .system)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.setTitle("False", for: .normal)
         view.tintColor = .black
-        view.setBackgroundImage(UIImage(named: "Rectangle"), for: .normal)
-        view.addTarget(self, action: #selector(porverka), for: .touchUpInside)
+        view.layer.borderColor = UIColor.gray.cgColor
+        view.layer.borderWidth = 5
+        view.addTarget(self, action: #selector(buttonsPressed), for: .touchUpInside)
         view.layer.cornerRadius = 16
 
         
         return view
     }()
-    var threetButton: UIButton = {
+    lazy var threetButton: UIButton = {
         var view = UIButton(type: .system)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.setTitle("VariantThree", for: .normal)
         view.tintColor = .black
-        view.setBackgroundImage(UIImage(named: "Rectangle"), for: .normal)
-        view.addTarget(self, action: #selector(porverka), for: .touchUpInside)
+        view.layer.borderColor = UIColor.gray.cgColor
+        view.layer.borderWidth = 5
+        view.addTarget(self, action: #selector(buttonsPressed), for: .touchUpInside)
         view.layer.cornerRadius = 16
 
         
@@ -94,19 +98,22 @@ class ViewController: UIViewController {
             fitstButton.leftAnchor.constraint(equalTo: view.leftAnchor,constant: 16),
             fitstButton.rightAnchor.constraint(equalTo: view.rightAnchor,constant: -16),
             fitstButton.bottomAnchor.constraint(equalTo: progressView.topAnchor,constant: -16),
-            fitstButton.heightAnchor.constraint(equalToConstant: 80)
+            fitstButton.heightAnchor.constraint(equalToConstant: 60)
         ])
         view.addSubview(secondtButton)
         NSLayoutConstraint.activate([
             secondtButton.leftAnchor.constraint(equalTo: view.leftAnchor,constant: 16),
             secondtButton.rightAnchor.constraint(equalTo: view.rightAnchor,constant: -16),
-            secondtButton.bottomAnchor.constraint(equalTo: fitstButton.topAnchor,constant: -16)
+            secondtButton.bottomAnchor.constraint(equalTo: fitstButton.topAnchor,constant: -16),
+            secondtButton.heightAnchor.constraint(equalToConstant: 60)
         ])
         view.addSubview(threetButton)
         NSLayoutConstraint.activate([
             threetButton.leftAnchor.constraint(equalTo: view.leftAnchor,constant: 16),
             threetButton.rightAnchor.constraint(equalTo: view.rightAnchor,constant: -16),
-            threetButton.bottomAnchor.constraint(equalTo: secondtButton.topAnchor,constant: -16)
+            threetButton.bottomAnchor.constraint(equalTo: secondtButton.topAnchor,constant: -16),
+            threetButton.heightAnchor.constraint(equalToConstant: 60)
+
         ])
         
     }
@@ -118,7 +125,7 @@ class ViewController: UIViewController {
         updateUI()
     }
     
-    @objc func porverka(sender: UIButton) {
+    @objc func buttonsPressed(sender: UIButton) {
         
         let userAnswer = sender.currentTitle
         let userGotItRight = quizBrain.chackAnswer(userAnswer: userAnswer ?? "Error user answer")
@@ -135,6 +142,7 @@ class ViewController: UIViewController {
         
 
     }
+    
     @objc func updateUI() {
         quationLabel.text = quizBrain.getQuetionText()
         progressView.progress = quizBrain.getProgress()

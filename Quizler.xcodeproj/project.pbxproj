@@ -64,7 +64,7 @@
 				C3B45AD62982965300B4EBD2 /* SceneDelegate.swift */,
 				C3B45AEA2982B86C00B4EBD2 /* Model */,
 				C3B45AEC2982B8C500B4EBD2 /* Controller */,
-				C3B45AEB2982B89F00B4EBD2 /* VView */,
+				C3B45AEB2982B89F00B4EBD2 /* View */,
 				C3B45ADD2982965400B4EBD2 /* Assets.xcassets */,
 				C3B45ADF2982965400B4EBD2 /* LaunchScreen.storyboard */,
 				C3B45AE22982965400B4EBD2 /* Info.plist */,
@@ -81,12 +81,12 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		C3B45AEB2982B89F00B4EBD2 /* VView */ = {
+		C3B45AEB2982B89F00B4EBD2 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				C3B45ADA2982965300B4EBD2 /* Main.storyboard */,
 			);
-			path = VView;
+			path = View;
 			sourceTree = "<group>";
 		};
 		C3B45AEC2982B8C500B4EBD2 /* Controller */ = {
